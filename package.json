@@ -1,0 +1,17 @@
+{
+  "name": "nestjs-services",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently  \"npm run docker:dev\" \"npm run dev:auth\" \"npm run dev:post\"",
+    "docker:dev": "docker-compose up --build",
+    "dev:auth": "cd auth-service && npm run db:migrate && npm run start:dev",
+    "dev:post": "cd post-service && npm run db:migrate && npm run start:dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
